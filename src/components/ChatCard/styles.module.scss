@@ -1,0 +1,23 @@
+.chatCard {
+  width: 40%;
+  margin: auto;
+  height: auto;
+  padding: 18px;
+  background-color: #efefef;
+  display: block;
+}
+
+.chatInput {
+  display: block;
+  float: right;
+  background-color: white;
+  width: 90%;
+  margin: auto;
+}
+
+.chatOutput {
+  display: block;
+  background-color: green;
+  width: 90%;
+  margin-top: 18px;
+}
