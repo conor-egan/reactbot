@@ -3,7 +3,7 @@
   margin: auto;
   height: auto;
   padding: 18px;
-  background-color: #efefef;
+  background-color: #ececee;
   display: block;
 }
 
@@ -11,13 +11,14 @@
   display: block;
   float: right;
   background-color: white;
-  width: 90%;
-  margin: auto;
+  width: 60%;
+  margin-bottom: 24px !important;
 }
 
 .chatOutput {
   display: block;
-  background-color: green;
-  width: 90%;
-  margin-top: 18px;
+  background-color: lightgreen;
+  width: 60%;
+  color: white !important;
+  margin-bottom: 24px !important;
 }
