@@ -2,16 +2,16 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import styles from "./styles.module.scss";
-import { CardHeader, TextField } from "@mui/material";
+import { Box, CardHeader, LinearProgress, TextField } from "@mui/material";
 import { useState } from "react";
 
 export const ChatCard = (): JSX.Element => {
   const [inputValue, setInputValue] = useState("");
 
   const [messages, pushMessage] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const sendMessage = async () => {
-    console.log("Sending message");
     const requestOptions = {
       method: "POST",
       body: JSON.stringify({ message: inputValue }),
@@ -45,23 +45,29 @@ export const ChatCard = (): JSX.Element => {
             />
           );
         })}
-        <TextField
-          className={styles.chatInput}
-          variant="outlined"
-          onChange={(e) => setInputValue(e.target.value)}
-          value={inputValue}
-          onKeyDown={async (e) => {
-            if (e.key === "Enter") {
-              const input = inputValue;
-              console.log(input);
-              sendMessage().then((response) => {
-                pushMessage([...messages, input, response]);
-              });
-              console.log(messages);
-              setInputValue("");
-            }
-          }}
-        />
+        {!loading ? (
+          <TextField
+            className={styles.chatInput}
+            variant="outlined"
+            onChange={(e) => setInputValue(e.target.value)}
+            value={inputValue}
+            onKeyDown={async (e) => {
+              if (e.key === "Enter") {
+                setLoading(true);
+                const input = inputValue;
+                await sendMessage().then((response) => {
+                  pushMessage([...messages, input, response]);
+                });
+                setInputValue("");
+                setLoading(false);
+              }
+            }}
+          />
+        ) : (
+          <Box className={styles.chatInput}>
+            <LinearProgress />
+          </Box>
+        )}
       </CardContent>
     </Card>
   );

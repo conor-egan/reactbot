@@ -1,11 +1,18 @@
 import "./App.css";
 import React from "react";
-import { ChatCard } from "./components/ChatCard";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { ChatCard } from "./pages/Chat";
 
 function App() {
   return (
     <div className="App">
-      <ChatCard />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/chat" element={<ChatCard />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
