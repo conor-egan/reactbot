@@ -15,6 +15,9 @@ export const Home = (): JSX.Element => {
           <li>
             <Link to="/chat">Chat</Link>
           </li>
+          <li>
+            <Link to="/generate">CSS Generator</Link>
+          </li>
         </ul>
       </div>
     </>

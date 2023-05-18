@@ -1,0 +1,29 @@
+.chatCard {
+  width: 80%;
+  margin: auto;
+  height: auto;
+  padding: 18px;
+  //background-color: #ececee;
+  display: block;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonContainer {
+  margin: auto;
+}
+
+.codeInput {
+  width: 40%;
+  border: 1px solid blue;
+  min-height: 400px;
+}
+
+.codeOutput {
+  width: 40%;
+  border: 1px solid blue;
+  min-height: 400px;
+}
